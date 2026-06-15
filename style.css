@@ -843,4 +843,227 @@ aside .panel .panel-title{display:flex!important;justify-content:center!importan
     padding:9px 0!important;
     font-size:12px!important;
   }
+
+/* =========================================================
+   Smartphone paysage
+   ========================================================= */
+
+@media (max-width: 920px) and (orientation: landscape){
+
+  body{
+    padding:86px 12px 190px!important;
+  }
+
+  .ea-topbar{
+    height:70px!important;
+    padding:0 18px!important;
+  }
+
+  .ea-brand img:first-child{
+    height:44px!important;
+  }
+
+  .ea-brand img:last-child{
+    height:36px!important;
+  }
+
+  .ea-grid,
+  .ea-grid-player{
+    grid-template-columns:180px minmax(0,1fr) 190px!important;
+    gap:14px!important;
+    align-items:start!important;
+  }
+
+  .cover-card{
+    max-width:180px!important;
+    padding:12px!important;
+  }
+
+  .panel{
+    padding:12px!important;
+  }
+
+  #playlist .chapter-heading{
+    min-height:42px!important;
+    padding:8px 9px!important;
+    font-size:11px!important;
+  }
+
+  #playlist .chapter-heading a,
+  #playlist .chapter-heading .chapter-title{
+    font-size:11px!important;
+    line-height:1.2!important;
+  }
+
+  #playlist .track-row{
+    padding:8px!important;
+    font-size:11px!important;
+  }
+
+  aside .panel .panel-title{
+    padding:8px 10px!important;
+    font-size:13px!important;
+    margin:0 0 10px!important;
+  }
+
+  .info-list,
+  .action-list{
+    font-size:11px!important;
+    gap:8px!important;
+  }
+
+  .side-action-btn{
+    min-height:36px!important;
+    font-size:11px!important;
+  }
+
+  .bottom-player{
+    padding:8px 10px!important;
+  }
+
+  .bottom-inner-v3{
+    display:grid!important;
+    grid-template-columns:210px auto minmax(180px,1fr) 190px 140px!important;
+    gap:10px!important;
+    align-items:center!important;
+    padding:8px 10px!important;
+  }
+
+  .mini-book{
+    grid-template-columns:34px minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+
+  .mini-book img{
+    width:34px!important;
+    height:46px!important;
+  }
+
+  .mini-title{
+    font-size:11px!important;
+    line-height:1.15!important;
+  }
+
+  .mini-track{
+    font-size:10px!important;
+  }
+
+  .bottom-controls{
+    gap:8px!important;
+  }
+
+  .bottom-btn{
+    width:44px!important;
+    height:44px!important;
+    font-size:20px!important;
+  }
+
+  .skip-btn,
+  .prev-btn,
+  .next-btn{
+    width:34px!important;
+    height:34px!important;
+    font-size:11px!important;
+  }
+
+  .bottom-progress{
+    grid-template-columns:38px minmax(0,1fr) 44px!important;
+    gap:6px!important;
+    font-size:11px!important;
+  }
+
+  .speed-inline{
+    gap:6px!important;
+    font-size:11px!important;
+  }
+
+  .volume-inline{
+    grid-template-columns:24px minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+}
+
+
+/* Page accueil en smartphone paysage */
+@media (max-width: 920px) and (orientation: landscape){
+
+  body.smartbook-home{
+    padding:86px 12px 28px!important;
+  }
+
+  body.smartbook-home .ea-topbar{
+    height:70px!important;
+  }
+
+  body.smartbook-home .ea-brand img:first-child{
+    height:48px!important;
+  }
+
+  body.smartbook-home .ea-brand img:last-child{
+    height:36px!important;
+  }
+
+  .smartbook-home-layout{
+    grid-template-columns:210px minmax(260px,1fr) 260px!important;
+    gap:18px!important;
+    align-items:center!important;
+  }
+
+  .smartbook-home-cover{
+    max-width:210px!important;
+    padding:12px!important;
+  }
+
+  .smartbook-home-center{
+    min-width:0!important;
+    gap:12px!important;
+  }
+
+  .smartbook-audiobook-logo{
+    max-width:150px!important;
+    margin:0 auto 8px!important;
+  }
+
+  .smartbook-home-center .main-cta{
+    height:44px!important;
+    max-width:280px!important;
+    font-size:12px!important;
+  }
+
+  .smartbook-home-features{
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:8px!important;
+    margin-top:8px!important;
+  }
+
+  .smartbook-home-features .feature{
+    font-size:10px!important;
+  }
+
+  .smartbook-home-features .ico{
+    width:30px!important;
+    height:30px!important;
+    font-size:16px!important;
+    margin-bottom:5px!important;
+  }
+
+  .smartbook-home-summary{
+    max-width:260px!important;
+  }
+
+  .smartbook-home-summary .panel-title{
+    padding:10px 12px!important;
+    font-size:14px!important;
+  }
+
+  .smartbook-home-toc{
+    padding:8px 12px!important;
+  }
+
+  .smartbook-home-toc li{
+    grid-template-columns:24px minmax(0,1fr)!important;
+    min-height:32px!important;
+    padding:6px 0!important;
+    font-size:9.5px!important;
+  }
 }
