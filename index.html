@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>ID-0-29-Smartbook – Redirection…</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="logo-icon-192.png" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Redirection immédiate vers ta page d’accueil réelle -->
+  <meta http-equiv="refresh" content="0; url=ID-0-29-Smartbook.html" />
+  <style>
+    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; display:grid; place-items:center; min-height:100vh; color:#333;}
+    a {color:#004080;}
+  </style>
+</head>
+<body>
+  <p>Redirection vers <strong>ID-0-29-Smartbook.html</strong>…<br>
+  Si rien ne se passe, <a href="ID-0-29-Smartbook.html">cliquez ici</a>.</p>
+
+  <script>
+    // Fallback JS si la meta-refresh est bloquée
+    if (!/ID-0-29-Smartbook\.html$/i.test(location.href)) {
+      setTimeout(() => location.replace('ID-0-29-Smartbook.html'), 50);
+    }
+    // Enregistre le SW même si l’utilisateur atterrit d’abord ici
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
+</body>
+</html>
