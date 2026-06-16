@@ -7,6 +7,7 @@ let currentIndex = 0;
 let trackDurations = {};
 let totalDuration = 0;
 let isSeeking = false;
+let currentSpeed = 1;
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
@@ -106,8 +107,14 @@ function playTrack(index) {
   currentIndex = index;
   setActiveTrack(index);
   audio.src = link.getAttribute('href');
+  audio.defaultPlaybackRate = currentSpeed;
+  audio.playbackRate = currentSpeed;
   audio.load();
-  audio.play().catch(() => null);
+  audio.playbackRate = currentSpeed;
+  audio.play().then(() => {
+    audio.playbackRate = currentSpeed;
+    syncPlayButton();
+  }).catch(() => null);
 }
 
 function updateChapterDurations() {
@@ -167,18 +174,32 @@ function updateGlobalInfo() {
 
 function syncPlayButton() {
   const btn = document.getElementById('bigPlayBtn');
-  if (btn) btn.textContent = audio.paused ? '▶' : '❚❚';
+  const isPlaying = !audio.paused && !audio.ended;
+
+  if (btn) {
+    btn.classList.toggle('playing', isPlaying);
+    btn.classList.toggle('is-playing', isPlaying);
+    btn.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
+  }
+
+  document.body.classList.toggle('playing', isPlaying);
 }
 
 function setSpeed(val) {
   const speed = parseFloat(val);
   if (!Number.isFinite(speed)) return;
-  audio.playbackRate = speed;
+
+  currentSpeed = speed;
+  audio.defaultPlaybackRate = currentSpeed;
+  audio.playbackRate = currentSpeed;
+
   const speedInline = document.getElementById('speedInline');
-  if (speedInline) speedInline.value = speed;
+  if (speedInline) speedInline.value = currentSpeed;
+
   const label = document.getElementById('speedText');
-  if (label) label.textContent = speed.toFixed(2) + 'x';
+  if (label) label.textContent = currentSpeed.toFixed(2) + 'x';
 }
+
 
 function seekCurrentTrackFromSlider(value) {
   const trackDuration = getCurrentTrackDuration();
@@ -199,8 +220,12 @@ function selectTrack(index) {
   if (index < 0 || index >= links.length) return;
   currentIndex = index;
   setActiveTrack(index);
+
   audio.src = links[index].getAttribute('href');
+  audio.defaultPlaybackRate = currentSpeed;
+  audio.playbackRate = currentSpeed;
   audio.load();
+  audio.playbackRate = currentSpeed;
   syncPlayButton();
   updateGlobalInfo();
 }
@@ -254,10 +279,21 @@ const playBtn = document.getElementById('bigPlayBtn');
 if (playBtn) playBtn.addEventListener('click', () => {
   if (!audio.src && links[currentIndex]) {
     audio.src = links[currentIndex].getAttribute('href');
+    audio.defaultPlaybackRate = currentSpeed;
+    audio.playbackRate = currentSpeed;
     audio.load();
+    audio.playbackRate = currentSpeed;
   }
-  if (audio.paused) audio.play().catch(() => null);
-  else audio.pause();
+
+  if (audio.paused) {
+    audio.play().then(() => {
+      audio.playbackRate = currentSpeed;
+      syncPlayButton();
+    }).catch(() => null);
+  } else {
+    audio.pause();
+    syncPlayButton();
+  }
 });
 
 const rewind10 = document.getElementById('rewind10');
@@ -314,7 +350,13 @@ audio.addEventListener('ended', () => {
   else syncPlayButton();
 });
 audio.addEventListener('timeupdate', updateGlobalInfo);
-audio.addEventListener('loadedmetadata', updateGlobalInfo);
+
+audio.addEventListener('loadedmetadata', () => {
+  audio.defaultPlaybackRate = currentSpeed;
+  audio.playbackRate = currentSpeed;
+  updateGlobalInfo();
+});
+
 syncPlayButton();
 updateGlobalInfo();
 

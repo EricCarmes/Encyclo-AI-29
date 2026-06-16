@@ -888,38 +888,41 @@ body.playing .bottom-btn::before{
     padding:104px 12px 390px;
   }
 
-  /* Bannière commune page 1 / page 2 */
   .ea-topbar,
-  body.smartbook-home .ea-topbar{
+  body.smartbook-home .ea-topbar,
+  body.smartbook-home header.ea-topbar{
     height:86px!important;
     padding:0 18px!important;
     overflow:hidden!important;
   }
 
   .ea-brand,
-  body.smartbook-home .ea-brand{
+  body.smartbook-home .ea-brand,
+  body.smartbook-home header.ea-topbar .ea-brand{
     width:100%!important;
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto!important;
     align-items:center!important;
-    gap:14px!important;
+    gap:12px!important;
   }
 
   .ea-brand img:first-child,
-  body.smartbook-home .ea-brand img:first-child{
-    height:46px!important;
-    max-width:100%!important;
+  body.smartbook-home .ea-brand img:first-child,
+  body.smartbook-home header.ea-topbar .ea-brand img:first-child{
+    height:42px!important;
     width:auto!important;
+    max-width:178px!important;
     margin:0!important;
     justify-self:start!important;
     object-fit:contain!important;
   }
 
   .ea-brand img:last-child,
-  body.smartbook-home .ea-brand img:last-child{
+  body.smartbook-home .ea-brand img:last-child,
+  body.smartbook-home header.ea-topbar .ea-brand img:last-child{
     height:34px!important;
-    max-width:96px!important;
     width:auto!important;
+    max-width:78px!important;
     margin:0!important;
     justify-self:end!important;
     object-fit:contain!important;
@@ -1198,49 +1201,67 @@ body.playing .bottom-btn::before{
   .smartbook-home-center{
     min-width:0;
     min-height:auto;
-    gap:6px;
+    gap:4px!important;
     justify-content:flex-start;
   }
 
   .smartbook-audiobook-logo{
     max-width:170px;
-    margin:0 auto 0;
+    margin:0 auto 2px!important;
   }
 
   .smartbook-home-center .main-cta{
     width:100%;
     max-width:420px;
     height:54px;
-    margin:2px auto 0;
+    margin:0 auto!important;
     font-size:14px;
   }
 
-  .smartbook-home-features{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:4px;
-    max-width:260px;
-    margin:8px auto 0;
+  body.smartbook-home .smartbook-home-features{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:7px!important;
+    width:100%!important;
+    max-width:300px!important;
+    margin:6px auto 0!important;
+    justify-items:center!important;
   }
 
-  .smartbook-home-features .feature{
-    min-width:0;
-    min-height:34px;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:9px;
-    text-align:left;
-    font-size:12px;
-    line-height:1.1;
+  body.smartbook-home .smartbook-home-features .feature{
+    width:auto!important;
+    min-width:0!important;
+    min-height:28px!important;
+    display:grid!important;
+    grid-template-columns:28px max-content!important;
+    gap:8px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    text-align:left!important;
+    font-size:12px!important;
+    line-height:1.15!important;
   }
 
-  .smartbook-home-features .ico{
-    flex:0 0 30px;
-    width:30px;
-    height:30px;
-    margin:0;
-    font-size:17px;
+  body.smartbook-home .smartbook-home-features .ico{
+    width:28px!important;
+    height:28px!important;
+    min-width:28px!important;
+    min-height:28px!important;
+    margin:0!important;
+    padding:0!important;
+    display:grid!important;
+    place-items:center!important;
+    border:2px solid var(--ea-purple)!important;
+    border-radius:50%!important;
+    color:var(--ea-purple)!important;
+    font-size:15px!important;
+    font-weight:900!important;
+    line-height:1!important;
+  }
+
+  body.smartbook-home .smartbook-home-features .ico::before{
+    content:none!important;
+    display:none!important;
   }
 
   .smartbook-home-summary{
@@ -1261,6 +1282,21 @@ body.playing .bottom-btn::before{
     min-height:42px;
     padding:9px 0;
     font-size:12px;
+  }
+}
+
+/* Très petits smartphones verticaux */
+@media(max-width:360px) and (orientation:portrait){
+  body.smartbook-home .ea-brand img:first-child,
+  body.smartbook-home header.ea-topbar .ea-brand img:first-child{
+    height:40px!important;
+    max-width:166px!important;
+  }
+
+  body.smartbook-home .ea-brand img:last-child,
+  body.smartbook-home header.ea-topbar .ea-brand img:last-child{
+    height:32px!important;
+    max-width:72px!important;
   }
 }
 
@@ -1389,190 +1425,6 @@ body.playing .bottom-btn::before{
     font-size:11px;
   }
 
-  .bottom-player{
-    left:50%;
-    right:auto;
-    bottom:8px;
-    width:calc(100% - 20px);
-    max-width:760px;
-    padding:0;
-    transform:translateX(-50%);
-    background:transparent;
-    box-shadow:none;
-  }
-
-  .bottom-inner,
-  .bottom-inner-v3{
-    width:100%;
-    min-height:0;
-    margin:0;
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) auto minmax(150px,1fr) 125px 125px!important;
-    gap:10px!important;
-    align-items:center!important;
-    padding:10px 14px!important;
-    border-radius:20px;
-    background:#fff;
-    box-shadow:0 12px 32px rgba(0,0,0,.18);
-  }
-
-  .mini-book,
-  .bottom-inner-v3 .mini-book{
-    width:auto;
-    min-width:0;
-    display:grid;
-    grid-template-columns:minmax(0,1fr);
-    gap:0;
-  }
-
-  .mini-book img,
-  .bottom-inner-v3 .mini-book img{
-    display:none;
-  }
-
-  .mini-title,
-  .bottom-inner-v3 .mini-title{
-    font-size:13px;
-    line-height:1.15;
-    -webkit-line-clamp:1;
-  }
-
-  .mini-track,
-  .bottom-inner-v3 .mini-track{
-    margin-top:3px;
-    font-size:12px;
-    line-height:1.15;
-    -webkit-line-clamp:1;
-  }
-
-  .bottom-controls{
-    display:grid;
-    grid-template-columns:42px 28px 62px 28px 42px;
-    gap:7px;
-    align-items:center;
-    justify-content:center;
-  }
-
-  #bigPlayBtn,
-  .bottom-btn{
-    width:62px!important;
-    height:62px!important;
-  }
-
-  #bigPlayBtn::before,
-  .bottom-btn::before{
-    border-top-width:13px!important;
-    border-bottom-width:13px!important;
-    border-left-width:21px!important;
-  }
-
-  .round-small{
-    width:42px;
-    height:42px;
-    font-size:15px;
-  }
-
-  .plain-control{
-    width:28px;
-    height:42px;
-    font-size:32px;
-  }
-
-  .bottom-progress{
-    height:40px;
-    min-width:0;
-    width:100%;
-    display:grid;
-    grid-template-columns:36px minmax(0,1fr) 40px;
-    gap:6px;
-    align-items:center;
-    margin:0;
-    padding:0;
-    font-size:12px;
-  }
-
-  .speed-inline,
-  .bottom-inner-v3 .speed-inline{
-    position:static!important;
-    width:100%;
-    min-width:0;
-    height:40px;
-    display:grid!important;
-    grid-template-columns:44px minmax(0,1fr) 40px;
-    grid-template-rows:14px 18px;
-    gap:3px 5px;
-    align-items:center;
-    margin:0;
-    padding:0;
-  }
-
-  .speed-inline strong,
-  .bottom-inner-v3 .speed-inline strong{
-    position:static!important;
-    grid-column:1;
-    grid-row:1;
-    align-self:end;
-    margin:0;
-    font-size:12px;
-    line-height:1;
-  }
-
-  .speed-inline span,
-  .bottom-inner-v3 .speed-inline span{
-    position:static!important;
-    grid-column:3;
-    grid-row:1;
-    align-self:end;
-    margin:0;
-    text-align:right;
-    font-size:10px;
-    line-height:1;
-  }
-
-  .speed-inline input,
-  .bottom-inner-v3 .speed-inline input{
-    position:static!important;
-    grid-column:1 / 4;
-    grid-row:2;
-    width:100%;
-    align-self:center;
-    transform:none;
-    margin:0;
-  }
-
-  .volume-inline{
-    height:40px;
-    min-width:0;
-    width:100%;
-    display:grid;
-    grid-template-columns:22px minmax(0,1fr);
-    gap:7px;
-    align-items:center;
-    margin:0;
-    padding:0;
-  }
-
-  .volume-icon{
-    align-self:center;
-    font-size:18px;
-    line-height:1;
-  }
-
-  .volume-inline input{
-    width:100%;
-    align-self:center;
-    margin:0;
-  }
-
-  #playerProgress,
-  #speedInline,
-  #volumeInline{
-    width:100%;
-    height:6px;
-    align-self:center;
-    margin:0;
-  }
-
   /* Page 1 horizontale */
   body.smartbook-home{
     padding:78px 12px 24px;
@@ -1593,18 +1445,18 @@ body.playing .bottom-btn::before{
   .smartbook-home-center{
     min-width:0;
     min-height:auto;
-    gap:8px;
+    gap:4px!important;
   }
 
   .smartbook-audiobook-logo{
     max-width:150px;
-    margin:0 auto 2px;
+    margin:0 auto 2px!important;
   }
 
   .smartbook-home-center .main-cta{
     max-width:280px;
     height:42px;
-    margin-top:2px;
+    margin:0 auto!important;
     font-size:12px;
   }
 
@@ -1646,4 +1498,291 @@ body.playing .bottom-btn::before{
     padding:5px 0;
     font-size:9.5px;
   }
+
+  /* Page 2 horizontale : player sur deux lignes */
+  body:not(.smartbook-home){
+    padding-bottom:142px!important;
+  }
+
+  .bottom-player{
+    bottom:6px!important;
+    left:50%!important;
+    right:auto!important;
+    width:calc(100% - 14px)!important;
+    max-width:none!important;
+    padding:0!important;
+    transform:translateX(-50%)!important;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .bottom-inner,
+  .bottom-inner-v3{
+    width:100%!important;
+    min-height:122px!important;
+    display:grid!important;
+    grid-template-columns:116px minmax(150px,1fr) auto minmax(120px,1fr) 108px 96px!important;
+    grid-template-rows:40px 58px!important;
+    grid-template-areas:
+      "book progress progress progress progress progress"
+      ". controls controls controls speed volume"!important;
+    gap:8px 12px!important;
+    align-items:center!important;
+    padding:10px 12px!important;
+    border-radius:16px!important;
+    background:#fff;
+    box-shadow:0 12px 32px rgba(0,0,0,.18);
+  }
+
+  .mini-book,
+  .bottom-inner-v3 .mini-book{
+    grid-area:book!important;
+    width:100%!important;
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:32px minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:center!important;
+    overflow:hidden!important;
+  }
+
+  .mini-book img,
+  .bottom-inner-v3 .mini-book img{
+    display:block!important;
+    width:28px!important;
+    height:38px!important;
+    min-width:28px!important;
+    object-fit:cover!important;
+    border-left:3px solid var(--ea-pink)!important;
+    padding-left:4px!important;
+  }
+
+  .mini-title,
+  .bottom-inner-v3 .mini-title{
+    font-size:10px!important;
+    line-height:1.12!important;
+    -webkit-line-clamp:2!important;
+  }
+
+  .mini-track,
+  .bottom-inner-v3 .mini-track{
+    display:none!important;
+  }
+
+  .bottom-progress{
+    grid-area:progress!important;
+    width:100%!important;
+    min-width:0!important;
+    height:36px!important;
+    display:grid!important;
+    grid-template-columns:32px minmax(0,1fr) 36px!important;
+    gap:7px!important;
+    align-items:center!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:11px!important;
+  }
+
+  .bottom-controls{
+    grid-area:controls!important;
+    width:auto!important;
+    display:grid!important;
+    grid-template-columns:34px 18px 48px 18px 34px!important;
+    gap:6px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    justify-self:center!important;
+  }
+
+  .round-small{
+    width:34px!important;
+    height:34px!important;
+    font-size:11px!important;
+    border-width:2px!important;
+  }
+
+  .plain-control{
+    width:18px!important;
+    height:34px!important;
+    font-size:24px!important;
+  }
+
+  #bigPlayBtn,
+  .bottom-btn{
+    width:48px!important;
+    height:48px!important;
+  }
+
+  #bigPlayBtn::before,
+  .bottom-btn::before{
+    border-top-width:10px!important;
+    border-bottom-width:10px!important;
+    border-left-width:17px!important;
+  }
+
+  .speed-inline,
+  .bottom-inner-v3 .speed-inline{
+    grid-area:speed!important;
+    position:static!important;
+    width:100%!important;
+    min-width:0!important;
+    height:44px!important;
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1fr) 28px!important;
+    grid-template-rows:14px 22px!important;
+    gap:2px 4px!important;
+    align-items:center!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  .speed-inline strong,
+  .bottom-inner-v3 .speed-inline strong{
+    position:static!important;
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:end!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:10px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+
+  .speed-inline span,
+  .bottom-inner-v3 .speed-inline span{
+    position:static!important;
+    grid-column:3!important;
+    grid-row:1!important;
+    align-self:end!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:right!important;
+    font-size:9px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+
+  .speed-inline input,
+  .bottom-inner-v3 .speed-inline input{
+    position:static!important;
+    grid-column:1 / 4!important;
+    grid-row:2!important;
+    width:100%!important;
+    transform:none!important;
+    margin:0!important;
+    align-self:center!important;
+  }
+
+  .volume-inline{
+    grid-area:volume!important;
+    width:100%!important;
+    min-width:0!important;
+    height:44px!important;
+    display:grid!important;
+    grid-template-columns:18px minmax(0,1fr)!important;
+    gap:6px!important;
+    align-items:center!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  .volume-icon{
+    font-size:14px!important;
+    line-height:1!important;
+    text-align:center!important;
+  }
+
+  .volume-inline input{
+    width:100%!important;
+    margin:0!important;
+    align-self:center!important;
+  }
+
+  #playerProgress,
+  #speedInline,
+  #volumeInline{
+    width:100%!important;
+    height:5px!important;
+    margin:0!important;
+  }
+
+  #playerProgress::-webkit-slider-thumb,
+  #speedInline::-webkit-slider-thumb,
+  #volumeInline::-webkit-slider-thumb{
+    width:15px!important;
+    height:15px!important;
+  }
+
+  #playerProgress::-moz-range-thumb,
+  #speedInline::-moz-range-thumb,
+  #volumeInline::-moz-range-thumb{
+    width:15px!important;
+    height:15px!important;
+  }
 }
+
+/* Très petits horizontaux : on masque le titre pour garder un vrai player utilisable */
+@media(max-width:740px) and (max-height:430px){
+  body:not(.smartbook-home){
+    padding-bottom:134px!important;
+  }
+
+  .bottom-inner,
+  .bottom-inner-v3{
+    grid-template-columns:96px minmax(120px,1fr) auto minmax(70px,1fr) 92px 78px!important;
+    grid-template-rows:36px 50px!important;
+    grid-template-areas:
+      "book progress progress progress progress progress"
+      "book controls controls controls speed volume"!important;
+    gap:7px 8px!important;
+    padding:8px!important;
+  }
+
+  .mini-book,
+  .bottom-inner-v3 .mini-book{
+    grid-area:book!important;
+    width:100%!important;
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:28px minmax(0,1fr)!important;
+    gap:7px!important;
+    align-items:center!important;
+    overflow:hidden!important;
+  }
+
+  .mini-book img,
+  .bottom-inner-v3 .mini-book img{
+    display:block!important;
+    width:24px!important;
+    height:34px!important;
+    min-width:24px!important;
+    object-fit:cover!important;
+    border-left:3px solid var(--ea-pink)!important;
+    padding-left:4px!important;
+  }
+
+  .bottom-controls{
+    grid-template-columns:30px 16px 42px 16px 30px!important;
+    gap:5px!important;
+  }
+
+  .round-small{
+    width:30px!important;
+    height:30px!important;
+    font-size:10px!important;
+  }
+
+  .plain-control{
+    width:16px!important;
+    height:30px!important;
+    font-size:21px!important;
+  }
+
+  #bigPlayBtn,
+  .bottom-btn{
+    width:42px!important;
+    height:42px!important;
+  }
+}
+
