@@ -776,10 +776,10 @@ body.smartbook-home{
 }
 
 /* =========================================================
-   Responsive + player smartphone dédié
+   Responsive + player smartphone dédié corrigé
    ========================================================= */
 
-/* Tablette / petits laptops : empilement, player desktop conservé */
+/* Tablette / petits laptops */
 @media(max-width:1200px){
   body{
     padding-left:18px;
@@ -796,6 +796,7 @@ body.smartbook-home{
   }
 
   .cover-card{
+    display:block;
     max-width:520px;
     margin:0 auto;
   }
@@ -835,7 +836,7 @@ body.smartbook-home{
 
 
 /* =========================================================
-   Smartphone vertical : player type podcast
+   Smartphone vertical
    ========================================================= */
 
 @media(max-width:768px) and (orientation:portrait){
@@ -870,9 +871,21 @@ body.smartbook-home{
     gap:16px;
   }
 
-  .ea-grid-player > aside,
-  .cover-card{
+  .ea-grid-player > aside:not(.cover-card){
     display:none;
+  }
+
+  .cover-card{
+    display:block;
+    max-width:220px;
+    width:100%;
+    margin:0 auto;
+    padding:14px;
+  }
+
+  .cover-card img{
+    width:100%;
+    height:auto;
   }
 
   .panel{
@@ -945,20 +958,20 @@ body.smartbook-home{
     width:100%;
     min-width:0;
     display:grid;
-    grid-template-columns:56px minmax(0,1fr);
-    gap:14px;
+    grid-template-columns:44px minmax(0,1fr);
+    gap:12px;
     align-items:start;
   }
 
   .mini-book img,
   .bottom-inner-v3 .mini-book img{
-    width:52px;
-    height:72px;
+    width:40px;
+    height:56px;
   }
 
   .mini-title,
   .bottom-inner-v3 .mini-title{
-    font-size:17px;
+    font-size:15px;
     line-height:1.15;
     -webkit-line-clamp:2;
   }
@@ -966,7 +979,7 @@ body.smartbook-home{
   .mini-track,
   .bottom-inner-v3 .mini-track{
     margin-top:6px;
-    font-size:15px;
+    font-size:13px;
     line-height:1.2;
     -webkit-line-clamp:2;
   }
@@ -1125,20 +1138,27 @@ body.smartbook-home{
 
   .smartbook-home-features{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:10px;
-    margin-top:12px;
+    grid-template-columns:1fr;
+    gap:18px;
+    max-width:260px;
+    margin:20px auto 0;
   }
 
   .smartbook-home-features .feature{
     min-width:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    text-align:left;
     font-size:12px;
   }
 
   .smartbook-home-features .ico{
+    flex:0 0 38px;
     width:38px;
     height:38px;
-    margin-bottom:8px;
+    margin:0;
     font-size:22px;
   }
 
@@ -1165,7 +1185,7 @@ body.smartbook-home{
 
 
 /* =========================================================
-   Smartphone horizontal : player compact bas, contenu lisible
+   Smartphone horizontal
    ========================================================= */
 
 @media(max-width:920px) and (max-height:500px){
@@ -1196,13 +1216,26 @@ body.smartbook-home{
 
   .ea-grid,
   .ea-grid-player{
-    grid-template-columns:1fr;
-    gap:12px;
+    grid-template-columns:150px minmax(0,1fr);
+    gap:14px;
+    align-items:start;
   }
 
-  .ea-grid-player > aside,
-  .cover-card{
+  .ea-grid-player > aside:not(.cover-card){
     display:none;
+  }
+
+  .cover-card{
+    display:block;
+    max-width:140px;
+    width:100%;
+    margin:0 auto;
+    padding:10px;
+  }
+
+  .cover-card img{
+    width:100%;
+    height:auto;
   }
 
   .panel{
@@ -1257,7 +1290,7 @@ body.smartbook-home{
     min-height:0;
     margin:0;
     display:grid;
-    grid-template-columns:minmax(0,1fr) auto minmax(180px,1.1fr) 150px 150px;
+    grid-template-columns:minmax(0,1fr) auto minmax(130px,1fr) 110px 110px;
     gap:10px;
     align-items:center;
     padding:10px 14px;
@@ -1374,7 +1407,7 @@ body.smartbook-home{
     min-width:0;
     width:100%;
     display:grid;
-    grid-template-columns:26px minmax(0,1fr);
+    grid-template-columns:22px minmax(0,1fr);
     gap:7px;
     align-items:center;
   }
@@ -1414,8 +1447,8 @@ body.smartbook-home{
   }
 
   .smartbook-audiobook-logo{
-    max-width:140px;
-    margin:0 auto 6px;
+    max-width:110px;
+    margin:0 auto;
   }
 
   .smartbook-home-center .main-cta{
